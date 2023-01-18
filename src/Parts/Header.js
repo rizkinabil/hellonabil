@@ -22,7 +22,7 @@ export default function Header(props) {
       </header>
     );
   return (
-    <header className="spacing-sm" style={{ borderBottom: '1px solid #c4c4c4' }}>
+    <header className="spacing-sm" >
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light">
           <BrandIcon />

@@ -4,6 +4,7 @@ import Header from 'Parts/Header';
 import Hero from 'Parts/Hero';
 import About from 'Parts/About';
 import Techstack from 'Parts/Techstack';
+import Showcase from 'Parts/Showcase';
 
 export default class LandingPage extends Component {
   render() {
@@ -13,6 +14,7 @@ export default class LandingPage extends Component {
         <Hero />
         <About />
         <Techstack />
+        <Showcase />
       </>
     );
   }
