@@ -1,0 +1,109 @@
+.text-message {
+  margin-top: 7rem;
+  text-align: right;
+  line-height: 36px;
+  font-size: 24px;
+  font-weight: 500;
+  font-family: 'poppins' sans-serif;
+}
+
+.btn-style-wrapper {
+  margin-top: 40px;
+  position: relative;
+  .btn-style {
+    right: 0;
+    position: absolute;
+    button {
+      border: none;
+      background-color: transparent;
+      font-family: 'Poppins' sans-serif;
+      font-weight: 500;
+      font-size: 1.125rem;
+      color: #152c5b;
+      line-height: 27px;
+      transition: all 1.5s ease-in-out;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      span {
+        color: white;
+      }
+    }
+
+    .bg {
+      background-color: #3252df;
+      z-index: -1;
+      order: 1;
+      position: absolute;
+      top: -5px;
+      left: 115px;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      transition: all 1.5s ease-in-out;
+    }
+    &:hover {
+      .bg {
+        width: 155px;
+        border-radius: 10px;
+        transform: translateX(-72%);
+      }
+      button {
+        color: white;
+      }
+    }
+  }
+}
+
+// .btn-animate-wrapper {
+//   position: relative;
+//   .btn-animate {
+//     right: 0;
+//     position: absolute;
+//     button {
+//       position: absolute;
+//       border: none;
+//       background-color: transparent;
+//       z-index: 9999;
+//       font-family: 'Poppins' sans-serif;
+//       font-weight: 500;
+//       font-size: 18px;
+//       color: #152c5b;
+//       line-height: 27px;
+//       transition: all 1.5s ease-in-out;
+
+//       a {
+//         text-decoration: none;
+//         color: inherit;
+//       }
+//       span {
+//         color: white;
+//       }
+//     }
+//     .bg {
+//       background-color: #3252df;
+//       order: 1;
+//       position: absolute;
+//       top: -3px;
+//       left: 110px;
+//       width: 40px;
+//       height: 40px;
+//       border-radius: 50%;
+//       transition: all 1.5s ease-in-out;
+//     }
+
+//     &:hover {
+//       .bg {
+//         width: 155px;
+//         border-radius: 10px;
+//         transform: translateX(-72%);
+//       }
+//       button {
+//         color: white;
+//       }
+//     }
+//   }
+// }

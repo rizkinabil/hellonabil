@@ -1,28 +1,22 @@
 {
   "data_showcase": [
     {
-      "info": {
-        "image_name": "foto 1",
-        "image_url": "https://www.ntaskmanager.com/wp-content/uploads/2020/10/project-design-in-project-management.png.webp"
-      }
+      "id": "3ecdb1f9-1646-40da-9a9e-87713bdb2634",
+      "id_dummy": 0,
+      "image_name": "foto 1",
+      "image_url": "https://www.ntaskmanager.com/wp-content/uploads/2020/10/project-design-in-project-management.png.webp"
     },
     {
-      "info": {
-        "image_name": "foto 1",
-        "image_url": "https://www.ntaskmanager.com/wp-content/uploads/2020/10/project-design-in-project-management.png.webp"
-      }
+      "id": "6b02e565-32cc-4c90-8066-adba0b66904e",
+      "id_dummy": 1,
+      "image_name": "foto 1",
+      "image_url": "https://www.ntaskmanager.com/wp-content/uploads/2020/10/project-design-in-project-management.png.webp"
     },
     {
-      "info": {
-        "image_name": "foto 1",
-        "image_url": "https://www.ntaskmanager.com/wp-content/uploads/2020/10/project-design-in-project-management.png.webp"
-      }
-    },
-    {
-      "info": {
-        "image_name": "foto 1",
-        "image_url": "https://www.ntaskmanager.com/wp-content/uploads/2020/10/project-design-in-project-management.png.webp"
-      }
+      "id": "2b281974-d012-468c-9dc5-66b9e042a6f7",
+      "id_dummy": 2,
+      "image_name": "foto 1",
+      "image_url": "https://qph.cf2.quoracdn.net/main-qimg-ec166168f635944c8c0c3d598b7b5abc-pjlq"
     }
   ]
 }

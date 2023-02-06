@@ -1,0 +1,73 @@
+{
+  "gallery_info": [
+    {
+      "id": 0,
+      "title": "FingerVote",
+      "about": "wow keren banget ini loh coba deh liat",
+      "designer": "samsudin",
+      "list_image": [
+        {
+          "id": 1,
+          "image_name": "foto 1",
+          "image_url": "https://www.ntaskmanager.com/wp-content/uploads/2020/10/project-design-in-project-management.png.webp"
+        },
+        {
+          "id": 2,
+          "image_name": "foto 2",
+          "image_url": "https://qph.cf2.quoracdn.net/main-qimg-ec166168f635944c8c0c3d598b7b5abc-pjlq"
+        },
+        {
+          "id": 3,
+          "image_name": "foto 3",
+          "image_url": "https://www.ntaskmanager.com/wp-content/uploads/2020/10/project-design-in-project-management.png.webp"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "FingerVote",
+      "about": "wow keren banget ini loh coba deh liat",
+      "designer": "samsudin",
+      "list_image": [
+        {
+          "id": 1,
+          "image_name": "foto 1",
+          "image_url": "https://www.ntaskmanager.com/wp-content/uploads/2020/10/project-design-in-project-management.png.webp"
+        },
+        {
+          "id": 2,
+          "image_name": "foto 2",
+          "image_url": "https://qph.cf2.quoracdn.net/main-qimg-ec166168f635944c8c0c3d598b7b5abc-pjlq"
+        },
+        {
+          "id": 3,
+          "image_name": "foto 3",
+          "image_url": "https://www.ntaskmanager.com/wp-content/uploads/2020/10/project-design-in-project-management.png.webp"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "FingerVote",
+      "about": "wow keren banget ini loh coba deh liat",
+      "designer": "samsudin",
+      "list_image": [
+        {
+          "id": 1,
+          "image_name": "foto 1",
+          "image_url": "https://www.ntaskmanager.com/wp-content/uploads/2020/10/project-design-in-project-management.png.webp"
+        },
+        {
+          "id": 2,
+          "image_name": "foto 2",
+          "image_url": "https://qph.cf2.quoracdn.net/main-qimg-ec166168f635944c8c0c3d598b7b5abc-pjlq"
+        },
+        {
+          "id": 3,
+          "image_name": "foto 3",
+          "image_url": "https://www.ntaskmanager.com/wp-content/uploads/2020/10/project-design-in-project-management.png.webp"
+        }
+      ]
+    }
+  ]
+}
