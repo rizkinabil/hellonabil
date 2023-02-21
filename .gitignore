@@ -11,6 +11,8 @@
 # production
 /build
 
+/rizkinabil-cms
+
 # misc
 .DS_Store
 .env.local

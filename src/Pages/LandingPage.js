@@ -8,14 +8,24 @@ import Showcase from 'Parts/Showcase';
 import Footer from 'Parts/Footer';
 
 export default class LandingPage extends Component {
+  constructor(props) {
+    super(props);
+    this.refProject = React.createRef();
+  }
+
+  componentDidMount() {
+    document.title = 'Rizkinabil | Home';
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <>
         <Header {...this.props}></Header>
-        <Hero />
+        <Hero refProject={this.refProject} />
         <About />
         <Techstack />
-        <Showcase />
+        <Showcase refProject={this.refProject} />
         <Footer />
       </>
     );

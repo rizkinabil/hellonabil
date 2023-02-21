@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <>
       <MessageElement isShowedButton />
-      <div class="container footer">
+      <div className="container footer">
         <span>Copyright 2022 • All rights reserved • Rizkinabil</span>
       </div>
     </>

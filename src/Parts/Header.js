@@ -11,7 +11,7 @@ export default function Header(props) {
   if (props.isCentered)
     return (
       <header className="spacing-sm">
-        <div className="container">
+        <div className="header-wrap container">
           <nav className="navbar navbar-expand-lg navbar-light">
             <Button className="brand-text-icon mx-auto" href="" type="link">
               Rizki
@@ -22,8 +22,8 @@ export default function Header(props) {
       </header>
     );
   return (
-    <header className="spacing-sm" >
-      <div className="container">
+    <header className="spacing-sm">
+      <div className="header-wrap container">
         <nav className="navbar navbar-expand-lg navbar-light">
           <BrandIcon />
           <div className="collapse navbar-collapse">

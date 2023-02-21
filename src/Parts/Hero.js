@@ -6,6 +6,13 @@ import btn_slide from 'Assets/Images/btn_slide.svg';
 import { Slide, Fade } from 'react-awesome-reveal';
 
 export default function Hero(props) {
+  function showProject() {
+    window.scrollTo({
+      top: props.refProject.current.offsetTop - 90,
+      behavior: 'smooth',
+    });
+  }
+
   return (
     <div className="hero spacing-sm">
       <section className="container">
@@ -29,7 +36,7 @@ export default function Hero(props) {
 
               <div className="btn-animate-wrapper">
                 <div className="btn-animate">
-                  <button>
+                  <button onClick={showProject}>
                     My Proje<span>cts</span>
                   </button>
                   <div className="bg"></div>

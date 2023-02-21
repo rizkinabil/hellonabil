@@ -6,7 +6,7 @@ import './index.scss';
 export default function MessageElement(props) {
   if (!props.isShowedButton) {
     return (
-      <div class="container">
+      <div className="container">
         <h1 className="text-message">
           You already know about <span className="text-primary">me.</span> Let's <br /> make something{' '}
           <span className="text-primary">special.</span>
@@ -17,7 +17,7 @@ export default function MessageElement(props) {
 
   return (
     <>
-      <div class="container">
+      <div className="container">
         <h1 className="text-message">
           You already know about <span className="text-primary">me.</span> Let's <br /> make something{' '}
           <span className="text-primary">special.</span>
