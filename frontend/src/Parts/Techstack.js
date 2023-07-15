@@ -9,10 +9,10 @@ import { OrbitControls } from '@react-three/drei';
 
 export default function Techstack() {
   return (
-    <div className="container">
-      <div className="row">
+    <div className="container techstack-wrapper">
+      <div className="row title">
         <h1>Techstack</h1>
-        <img src={iconTitle} alt="logo" className="" />
+        <img src={iconTitle} alt="logo" />
       </div>
       <div className="row justify-content-between techstack">
         <div className="column-md-4">
