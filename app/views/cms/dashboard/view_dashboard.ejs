@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('parts/header.ejs') %>
+  <%- include('../../parts/header.ejs') %>
   <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
       <!-- Sidebar -->
-      <%- include('parts/sidebar.ejs') %>
+      <%- include('../../parts/sidebar.ejs') %>
       <!-- End of Sidebar -->
 
       <!-- Content Wrapper -->
@@ -13,16 +13,19 @@
         <!-- Main Content -->
         <div id="content">
           <!-- topbar -->
-          <%- include('parts/topbar.ejs') %>
+          <%- include('../../parts/topbar.ejs') %>
           <!-- end of topbar -->
           <!-- Begin Page Content -->
-
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <h1 class="h3 mb-4 text-gray-800">Welcome to Dashboard</h1>
+          </div>
           <!-- /.container-fluid -->
         </div>
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <%- include('parts/footer.ejs') %>
+        <%- include('../../parts/footer.ejs') %>
         <!-- End of Footer -->
       </div>
       <!-- End of Content Wrapper -->
@@ -60,6 +63,6 @@
       </div>
     </div>
 
-    <%- include('parts/script.ejs') %>
+    <%- include('../../parts/script.ejs') %>
   </body>
 </html>

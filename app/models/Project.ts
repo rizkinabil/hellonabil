@@ -1,12 +1,16 @@
-import mongoose, { Schema, Document, Types } from 'mongoose';
+import * as mongoose from 'mongoose';
+import { Schema, Document, Types, Model } from 'mongoose';
 
-interface interfaceShowCase extends Document {
+type ProjectType = ProjectModel & mongoose.Document;
+export interface ProjectModel {
   _id: Types.ObjectId;
   name: String;
-  urlName: String;
+  description: String;
+  imageUrl: String;
+  url: String;
 }
 
-const showCaseSchema: Schema<interfaceShowCase> = new Schema<interfaceShowCase>({
+const projectSchema: Schema<ProjectType> = new Schema<ProjectType>({
   _id: {
     type: Schema.Types.ObjectId,
     ref: 'Project',
@@ -15,12 +19,20 @@ const showCaseSchema: Schema<interfaceShowCase> = new Schema<interfaceShowCase>(
     type: String,
     required: true,
   },
-  urlName: {
+  description: {
+    type: String,
+    required: true,
+  },
+  imageUrl: {
+    type: String,
+    required: true,
+  },
+  url: {
     type: String,
     required: true,
   },
 });
 
-const showCase = mongoose.model<interfaceShowCase>('showCase', showCaseSchema);
+const showCase = mongoose.model<ProjectType>('showCase', projectSchema);
 
 export default showCase;
