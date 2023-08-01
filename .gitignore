@@ -5,6 +5,7 @@
 /build
 
 .env
+/public
 
 # server
 /be-server

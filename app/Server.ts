@@ -2,11 +2,16 @@ import { Express, Request, Response } from 'express';
 import express from 'express';
 import * as path from 'path';
 import { json, urlencoded } from 'body-parser';
+import methodOverride from 'method-override';
+import session from 'express-session';
+import cookieParser from 'cookie-parser';
+import { upload, uploadMultiple } from './middlewares/multer';
+import flash from 'connect-flash';
 
 import router from './routes/api';
 
 import { viewDashboard } from './controllers/dashboardController';
-import { addProject, viewProject } from './controllers/projectController';
+import { addProject, deleteProject, editProject, viewProject } from './controllers/projectController';
 
 export class Server {
   private app: Express;
@@ -16,8 +21,20 @@ export class Server {
 
     this.app.use(json());
     this.app.use(urlencoded({ extended: true }));
+    this.app.use(methodOverride('_method'));
+    this.app.use(
+      session({
+        secret: 'keyboard cat',
+        resave: false,
+        saveUninitialized: true,
+        cookie: { maxAge: 60000 },
+      })
+    );
+    this.app.use(cookieParser());
+    this.app.use(flash());
 
     this.app.use(express.static(path.resolve('./') + '/build/frontend'));
+    this.app.use(express.static('public'));
 
     // view engine template setup
     this.app.set('views', path.join(__dirname, 'views')); // specify the views directory
@@ -26,17 +43,15 @@ export class Server {
     // sb2-admin template
     this.app.use('/sb-admin-2', express.static(path.resolve('./') + '/node_modules/startbootstrap-sb-admin-2'));
 
-    // render view
+    // routes
     this.app.get('/api', (req: Request, res: Response): void => {
       res.render('index');
     });
     this.app.get('/api/dashboard', viewDashboard);
     this.app.get('/api/projects', viewProject);
-    this.app.post('/api/projects', addProject);
-    // this.app.post('/api/projects', (req: Request, res: Response): void => {
-    //   const { name } = req.body;
-    //   console.log(name);
-    // });
+    this.app.post('/api/projects', upload, addProject);
+    this.app.put('/api/projects/', editProject);
+    this.app.delete('/api/projects/:id', deleteProject);
 
     // API
     // this.app.use('/api', router);

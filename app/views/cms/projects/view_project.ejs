@@ -17,6 +17,7 @@
           <!-- end of topbar -->
           <!-- Begin Page Content -->
           <div class="container-fluid">
+            <!-- <div class="alert alert-success" role="alert">A simple success alert—check it out!</div> -->
             <!-- Page Heading -->
             <h1 class="h3 mb-4 text-gray-800">Projects</h1>
             <%- include('./table.ejs') %>
@@ -67,3 +68,21 @@
     <%- include('../../parts/script.ejs') %>
   </body>
 </html>
+
+<%- include('./add_modal.ejs') %> <%- include('./edit_modal.ejs') %>
+
+<script>
+  $('#dataTable').on('click', '.button-edit', function () {
+    let id = $(this).data('id');
+    let name = $(this).data('name');
+    let description = $(this).data('description');
+    let imageUrl = $(this).data('imageUrl');
+    let url = $(this).data('url');
+    $('#edit-modal').modal('show');
+    $('.id').val(id);
+    $('.name').val(name);
+    $('.description').val(description);
+    $('.imageUrl').val(imageUrl);
+    $('.url').val(url);
+  });
+</script>

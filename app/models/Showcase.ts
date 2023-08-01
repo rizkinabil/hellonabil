@@ -1,20 +1,15 @@
 import * as mongoose from 'mongoose';
 import { Schema, Document, Types, Model } from 'mongoose';
 
-type ProjectType = ProjectModel & mongoose.Document;
-export interface ProjectModel {
-  _id: Types.ObjectId;
+type ShowcaseType = ShowcaseModel & mongoose.Document;
+export interface ShowcaseModel {
   name: String;
   description: String;
   imageUrl: String;
   url: String;
 }
 
-const projectSchema: Schema<ProjectType> = new Schema<ProjectType>({
-  _id: {
-    type: Schema.Types.ObjectId,
-    ref: 'Project',
-  },
+const showcaseSchema: Schema<ShowcaseType> = new Schema<ShowcaseType>({
   name: {
     type: String,
     required: true,
@@ -33,6 +28,6 @@ const projectSchema: Schema<ProjectType> = new Schema<ProjectType>({
   },
 });
 
-const showCase = mongoose.model<ProjectType>('showCase', projectSchema);
+const showCase = mongoose.model<ShowcaseType>('showCase', showcaseSchema);
 
 export default showCase;

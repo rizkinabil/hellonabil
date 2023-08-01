@@ -8,8 +8,11 @@
     "esModuleInterop": true,
     "lib": ["es6"],
     "allowJs": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["./node_modules/@types", "./types"], // Add "./types" to include custom declaration files
+    "types": ["node", "express"]
   },
   "include": ["**.ts"],
-  "exclude": ["./frontend"]
+  "exclude": ["./frontend", "node_modules"],
+  "files":["types.d.ts"]
 }
