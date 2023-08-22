@@ -7,6 +7,9 @@ declare namespace Express {
     user: any;
     files: any;
     file: any;
+    flash(type: string, message?: string): void;
+    flash(type: string, message?: string[]): void;
+    flash(): { [type: string]: string[] };
   }
   export interface Response {
     user: any;

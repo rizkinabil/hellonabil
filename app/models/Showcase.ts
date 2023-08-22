@@ -1,16 +1,21 @@
-import * as mongoose from 'mongoose';
-import { Schema, Document, Types, Model } from 'mongoose';
+import { Schema, Document, Types, model } from 'mongoose';
+import { IImages } from './Images';
 
-type ShowcaseType = ShowcaseModel & mongoose.Document;
-export interface ShowcaseModel {
+interface ShowcaseModel extends Document {
   name: String;
+  designerName: String;
   description: String;
   imageUrl: String;
   url: String;
+  gallery: Types.Array<IImages>;
 }
 
-const showcaseSchema: Schema<ShowcaseType> = new Schema<ShowcaseType>({
+const showcaseSchema = new Schema({
   name: {
+    type: String,
+    required: true,
+  },
+  designerName: {
     type: String,
     required: true,
   },
@@ -26,8 +31,9 @@ const showcaseSchema: Schema<ShowcaseType> = new Schema<ShowcaseType>({
     type: String,
     required: true,
   },
+  gallery: [{ type: Schema.Types.ObjectId, ref: 'ImagesModel' }],
 });
 
-const showCase = mongoose.model<ShowcaseType>('showCase', showcaseSchema);
+const showCase = model<ShowcaseModel>('showCase', showcaseSchema);
 
 export default showCase;

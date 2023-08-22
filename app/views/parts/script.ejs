@@ -14,3 +14,14 @@
 
 <!-- Page level custom scripts -->
 <script src="/sb-admin-2/js/demo/datatables-demo.js"></script>
+
+<!-- cdn ckeditor -->
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
+
+<script>
+  ClassicEditor.create(document.querySelector('#ckeditor'))
+    .then((editor) => {})
+    .catch((error) => {
+      console.error(error);
+    });
+</script>

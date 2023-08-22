@@ -5,7 +5,7 @@ import { json, urlencoded } from 'body-parser';
 import methodOverride from 'method-override';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
-import { upload, uploadMultiple } from './middlewares/multer';
+import { upload } from './middlewares/multer';
 import flash from 'connect-flash';
 
 import router from './routes/api';
@@ -27,7 +27,7 @@ export class Server {
         secret: 'keyboard cat',
         resave: false,
         saveUninitialized: true,
-        cookie: { maxAge: 60000 },
+        cookie: { secure: true, maxAge: 60000 },
       })
     );
     this.app.use(cookieParser());
@@ -44,10 +44,7 @@ export class Server {
     this.app.use('/sb-admin-2', express.static(path.resolve('./') + '/node_modules/startbootstrap-sb-admin-2'));
 
     // routes
-    this.app.get('/api', (req: Request, res: Response): void => {
-      res.render('index');
-    });
-    this.app.get('/api/dashboard', viewDashboard);
+    this.app.get('/api', viewDashboard);
     this.app.get('/api/projects', viewProject);
     this.app.post('/api/projects', upload, addProject);
     this.app.put('/api/projects/', editProject);

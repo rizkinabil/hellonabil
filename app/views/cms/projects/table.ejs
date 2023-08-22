@@ -1,9 +1,9 @@
 <div class="card shadow mb-4">
-  <div class="card-header py-3">
+  <!-- <div class="card-header py-3">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-modal" data-whatever="@mdo">
       Add Data
     </button>
-  </div>
+  </div> -->
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -11,34 +11,35 @@
           <tr>
             <th>No</th>
             <th>Project Name</th>
-            <th>Description</th>
-            <th>Showcase</th>
+            <th>Designer Name</th>
+            <th>Thumbnail</th>
             <th>Project Link</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <% for(let i=0; i < showcase.length; i++) { %>
+          <% for(let i=0; i < showcaseData.length; i++) { %>
           <tr>
             <td><%= i + 1 %></td>
-            <td><%= showcase[i].name %></td>
-            <td><%= showcase[i].description %></td>
+            <td><%= showcaseData[i].name %></td>
+            <td><%= showcaseData[i].designerName %></td>
             <td>
-              <img src="/<%= showcase[i].imageUrl %>" alt="imageUrl" height="70px" width="70px" />
+              <img src="/<%= showcaseData[i].imageUrl %>" alt="imageUrl" height="70px" width="70px" />
             </td>
-            <td><%= showcase[i].url %></td>
+            <td><%= showcaseData[i].url %></td>
             <td>
-              <form action="/api/projects/<%= showcase[i].id %>?_method=DELETE" method="post">
+              <form action="/api/projects/<%= showcaseData[i].id %>?_method=DELETE" method="post">
                 <div style="display: flex">
                   <a
                     href="javascript:void()"
                     type="button"
                     class="btn btn-warning btn-circle button-edit"
-                    data-id="<%= showcase[i].id %>"
-                    data-name="<%= showcase[i].name %>"
-                    data-description="<%= showcase[i].description %>"
-                    data-imageUrl="<%= showcase[i].imageUrl %>"
-                    data-url="<%= showcase[i].url %>"
+                    data-id="<%= showcaseData[i].id %>"
+                    data-name="<%= showcaseData[i].name %>"
+                    data-designerName="<%= showcaseData[i].desginerName %>"
+                    data-description="<%= showcaseData[i].description %>"
+                    data-imageUrl="<%= showcaseData[i].imageUrl %>"
+                    data-url="<%= showcaseData[i].url %>"
                     ><i class="fas fa-edit"></i
                   ></a>
                   <button type="submit" class="btn btn-danger btn-circle">
