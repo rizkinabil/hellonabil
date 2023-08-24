@@ -1,9 +1,4 @@
 <div class="card shadow mb-4">
-  <!-- <div class="card-header py-3">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-modal" data-whatever="@mdo">
-      Add Data
-    </button>
-  </div> -->
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -28,18 +23,12 @@
             </td>
             <td><%= showcaseData[i].url %></td>
             <td>
-              <form action="/api/projects/<%= showcaseData[i].id %>?_method=DELETE" method="post">
+              <form action="/api/projects/<%= showcaseData[i].id %>/delete?_method=DELETE" method="post">
                 <div style="display: flex">
                   <a
-                    href="javascript:void()"
+                    href="/api/projects/<%= showcaseData[i].id %>"
                     type="button"
                     class="btn btn-warning btn-circle button-edit"
-                    data-id="<%= showcaseData[i].id %>"
-                    data-name="<%= showcaseData[i].name %>"
-                    data-designerName="<%= showcaseData[i].desginerName %>"
-                    data-description="<%= showcaseData[i].description %>"
-                    data-imageUrl="<%= showcaseData[i].imageUrl %>"
-                    data-url="<%= showcaseData[i].url %>"
                     ><i class="fas fa-edit"></i
                   ></a>
                   <button type="submit" class="btn btn-danger btn-circle">

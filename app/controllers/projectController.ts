@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
 import * as path from 'path';
 import fs from 'fs-extra';
-import showCase from '../models/Showcase';
-import ImagesModel, { ImagesDocument } from '../models/Images';
+import showCase, { ShowcaseModel } from '../models/Showcase';
+import ImagesModel, { IImages, ImagesDocument } from '../models/Images';
 
 export async function viewProject(req: Request, res: Response) {
   const showcaseData = await showCase.find();
-  res.render('cms/projects/view_project.ejs', { showcaseData });
+  res.render('cms/projects/view_project.ejs', { showcaseData, action: 'view project' });
 }
 
 export const addProject = async (req: Request, res: Response): Promise<any> => {
@@ -48,24 +48,58 @@ export const addProject = async (req: Request, res: Response): Promise<any> => {
   }
 };
 
+export async function viewEditProject(req: Request, res: Response) {
+  const { id } = req.params;
+  const showcaseData = await showCase.findOne({ _id: id }).populate({
+    path: 'gallery',
+    select: 'id  url',
+  });
+
+  res.render('cms/projects/view_project.ejs', { showcaseData, action: 'view edit' });
+}
+
 export async function editProject(req: Request, res: Response) {
   try {
-    const { id, name, description, url } = req.body;
-    const showcase = await showCase.findOne({ _id: id });
+    const { id } = req.params;
+    const { name, designerName, url, description } = req.body;
 
-    if (req.file === undefined) {
-      showcase.name = name;
-      showcase.description = description;
-      showcase.url = url;
-      await showcase.save();
-      res.redirect('/api/projects');
-    } else {
-      await fs.unlink(path.join(`public/${showcase.imageUrl}`));
-      showcase.name = name;
-      showcase.description = description;
-      showcase.url = url;
-      await showcase.save();
+    const showcaseData = await showCase
+      .findOne({ _id: id })
+      .populate({
+        path: 'gallery',
+        select: 'id url',
+      })
+      .populate('gallery');
+
+    if (!showcaseData) {
+      throw new Error('Showcase not found');
     }
+
+    showcaseData.name = name;
+    showcaseData.designerName = designerName;
+    showcaseData.url = url;
+    showcaseData.description = description;
+
+    if (req.files && req.files['image']) {
+      const imageUpdate = await showCase.findOne({
+        imageUrl: showcaseData.imageUrl,
+      });
+      await fs.unlink(path.join(`public/${imageUpdate.imageUrl}`));
+      const imageFile = req.files['image'][0];
+      const imageUrl = `images/${imageFile.filename}`;
+      showcaseData.imageUrl = imageUrl;
+    } else if (req.files && req.files['gallery']) {
+      for (let i = 0; i < req.files.gallery.length; i++) {
+        const galleryUpdate = await ImagesModel.findOne({
+          _id: showcaseData.gallery[i]._id,
+        });
+        await fs.unlink(path.join(`public/${galleryUpdate.url}`));
+        galleryUpdate.url = `gallery/${req.files.gallery[i].filename}`;
+        await galleryUpdate.save();
+      }
+    }
+    await showcaseData.save();
+    res.redirect('/api/projects');
   } catch (error) {
     console.log('error', error);
     res.redirect('/api/projects');

@@ -4,7 +4,7 @@ export interface IImages {
   url: String;
 }
 
-export type ImagesDocument = IImages & Document;
+export interface ImagesDocument extends IImages, Document {}
 
 const ImagesSchema = new Schema({
   url: {

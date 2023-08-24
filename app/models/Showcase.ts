@@ -1,13 +1,13 @@
 import { Schema, Document, Types, model } from 'mongoose';
 import { IImages } from './Images';
 
-interface ShowcaseModel extends Document {
+export interface ShowcaseModel extends Document {
   name: String;
   designerName: String;
   description: String;
   imageUrl: String;
   url: String;
-  gallery: Types.Array<IImages>;
+  gallery: Types.DocumentArray<IImages>;
 }
 
 const showcaseSchema = new Schema({

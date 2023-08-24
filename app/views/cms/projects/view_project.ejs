@@ -19,6 +19,9 @@
           <div class="container-fluid">
             <!-- Page Heading -->
             <h1 class="h3 mb-4 text-gray-800">Projects</h1>
+
+            <% if(action == 'view project') { %>
+
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item" role="presentation">
                 <button
@@ -57,6 +60,23 @@
                 <%- include('./add_project.ejs') %>
               </div>
             </div>
+            <% } else { %>
+            <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link active"
+                  id="home-tab"
+                  data-toggle="tab"
+                  href="#edit-item"
+                  role="tab"
+                  aria-controls="home"
+                  aria-selected="true"
+                  >Edit Project</a
+                >
+              </li>
+            </ul> -->
+            <div class="tab-content" id="myTabContent"><%- include('./edit_project.ejs') %></div>
+            <% } %>
           </div>
           <!-- /.container-fluid -->
         </div>
@@ -104,22 +124,4 @@
   </body>
 </html>
 
-<%- include('./edit_modal.ejs') %>
-
-<script>
-  $('#dataTable').on('click', '.button-edit', function () {
-    let id = $(this).data('id');
-    let name = $(this).data('name');
-    let desginerName = $(this).data('designerName');
-    let description = $(this).data('description');
-    let imageUrl = $(this).data('imageUrl');
-    let url = $(this).data('url');
-    $('#edit-modal').modal('show');
-    $('.id').val(id);
-    $('.name').val(name);
-    $('.designerName').val(designerName);
-    $('.description').val(description);
-    $('.imageUrl').val(imageUrl);
-    $('.url').val(url);
-  });
-</script>
+<script></script>
