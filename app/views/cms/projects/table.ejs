@@ -24,12 +24,18 @@
             <td><%= showcaseData[i].url %></td>
             <td>
               <form action="/api/projects/<%= showcaseData[i].id %>/delete?_method=DELETE" method="post">
-                <div style="display: flex">
+                <div style="display: flex; gap: 5px">
                   <a
                     href="/api/projects/<%= showcaseData[i].id %>"
                     type="button"
                     class="btn btn-warning btn-circle button-edit"
                     ><i class="fas fa-edit"></i
+                  ></a>
+                  <a
+                    href="/api/projects/gallery/<%= showcaseData[i].id %>"
+                    type="button"
+                    class="btn btn-success btn-circle"
+                    ><i class="fas fa-image"></i
                   ></a>
                   <button type="submit" class="btn btn-danger btn-circle">
                     <i class="fas fa-trash"></i>

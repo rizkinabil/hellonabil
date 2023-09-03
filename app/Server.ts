@@ -11,7 +11,14 @@ import flash from 'connect-flash';
 import router from './routes/api';
 
 import { viewDashboard } from './controllers/dashboardController';
-import { addProject, deleteProject, viewEditProject, editProject, viewProject } from './controllers/projectController';
+import {
+  addProject,
+  viewEditProject,
+  editProject,
+  viewProject,
+  viewGallery,
+  deleteProject,
+} from './controllers/projectController';
 
 export class Server {
   private app: Express;
@@ -49,6 +56,7 @@ export class Server {
     this.app.post('/api/projects', upload, addProject);
     this.app.get('/api/projects/:id', viewEditProject);
     this.app.put('/api/projects/:id', upload, editProject);
+    this.app.get('/api/projects/gallery/:id', viewGallery);
     this.app.delete('/api/projects/:id/delete', deleteProject);
 
     // API

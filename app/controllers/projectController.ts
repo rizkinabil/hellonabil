@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import * as path from 'path';
 import fs from 'fs-extra';
-import showCase, { ShowcaseModel } from '../models/Showcase';
-import ImagesModel, { IImages, ImagesDocument } from '../models/Images';
+import showCase from '../models/Showcase';
+import ImagesModel, { ImagesDocument } from '../models/Images';
 
 export async function viewProject(req: Request, res: Response) {
   const showcaseData = await showCase.find();
@@ -52,7 +52,7 @@ export async function viewEditProject(req: Request, res: Response) {
   const { id } = req.params;
   const showcaseData = await showCase.findOne({ _id: id }).populate({
     path: 'gallery',
-    select: 'id  url',
+    select: 'id url',
   });
 
   res.render('cms/projects/view_project.ejs', { showcaseData, action: 'view edit' });
@@ -104,6 +104,16 @@ export async function editProject(req: Request, res: Response) {
     console.log('error', error);
     res.redirect('/api/projects');
   }
+}
+
+export async function viewGallery(req: Request, res: Response) {
+  const { id } = req.params;
+  const showcaseData = await showCase.findOne({ _id: id }).populate({
+    path: 'gallery',
+    select: 'id url',
+  });
+
+  res.render('cms/projects/view_gallery.ejs', { showcaseData });
 }
 
 export async function deleteProject(req: Request, res: Response) {
